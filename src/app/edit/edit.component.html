@@ -1,0 +1,25 @@
+<div *ngIf="post" class="p-4">
+  <div class="form-group">
+    <label><h3>Title</h3>
+      <input class="form-control" [formControl]="titleControl" [(ngModel)]="post.title" placeholder="title" />
+    </label>
+
+  </div>
+
+  <div class="form-group">
+    <label for="body"><h3>Body</h3></label>
+    <textarea class="form-control" rows="12" name="body" id="body" [(ngModel)]="post.body" [formControl]="bodyControl">
+
+    </textarea>
+    Last Modified: {{post.modified | date:'medium'}}
+  </div>
+
+  <!--<div class="btn-toolbar bg-secondary">-->
+  <!--<div class="btn-group">-->
+  <button class="btn btn-secondary px-3 py-2" title="delete" (click)="delete()">Delete</button>
+  <button class="btn btn-secondary px-3 py-2" title="save" [disabled]="!titleControl.dirty && !bodyControl.dirty" (click)="save()">Save</button>
+  <button class="btn btn-secondary px-3 py-2" title="preview" (click)="preview()">Preview</button>
+  <!--</div>-->
+  <!--</div>-->
+
+</div>

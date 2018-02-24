@@ -1,0 +1,13 @@
+<div class="p-4">
+  <div>
+    <button class="btn btn-success btn-lg" type="submit" (click)="newPost()">New Post</button>
+  </div>
+
+  <div *ngIf="posts" class="py-4">
+    <a *ngFor="let post of posts" class="btn btn-secondary btn-block text-left" [class.active]="current===post"
+       routerLink="/edit/{{post.postid}}">
+        <span class="badge badge-light mr-4">{{post.created | date:'medium'}}</span>
+        {{post.title }}
+    </a>
+  </div>
+</div>
